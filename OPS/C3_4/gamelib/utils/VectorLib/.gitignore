@@ -1,0 +1,8 @@
+*.a
+*.o
+*.sh
+*.cbp
+test.cpp
+*.depend
+bin/
+obj/
