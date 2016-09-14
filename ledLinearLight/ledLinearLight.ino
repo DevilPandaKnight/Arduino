@@ -1,12 +1,12 @@
-#define RPIN 3
-#define GPIN 5
-#define BPIN 6
+#define RPIN 9
+#define GPIN 10
+#define BPIN 11
 void setup() {
   // put your setup code here, to run once:
   pinMode(RPIN,OUTPUT);
   pinMode(GPIN,OUTPUT);
   pinMode(BPIN,OUTPUT);
-  pinMode(9,OUTPUT);
+  //pinMode(9,OUTPUT);
   Serial.begin(9600);
 }
 
@@ -26,7 +26,7 @@ void loop() {
   if(colors[3]){int d = colors[3];colors[0]=d*30/100;colors[1]=d*59/100;colors[2]=d*14/100;}
   Update(colors[0],colors[1],colors[2]);
   if(++state == 512*4) state = 0;
-  analogWrite(9,counter);
+  //analogWrite(9,counter);
   counter +=dx;
   if(counter==0 || counter==256) dx = -dx;
   delay(2);

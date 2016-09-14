@@ -1,7 +1,6 @@
-int r = 11
+int r = 9;
 int g = 10;
-int y = 9;
-
+int y = 11;
 
 void setup() {
   Serial.begin(9600);
@@ -10,9 +9,10 @@ void setup() {
   pinMode(y,OUTPUT);
 }
 
+int i = 0;
 void loop() {
-  val = analogRead(potpin);
-  Serial.println(val);
-  analogWrite(ledpin,val/4);
-  delay(10);
+  for (int i = 0;i<255;i++){
+    analogWrite(r,i);
+    delay(5);
+  }
 }

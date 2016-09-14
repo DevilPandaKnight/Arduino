@@ -76,12 +76,16 @@ void Buttons::switchButtonOff(unsigned char button){
 
 void Buttons::begin(){
     Button* temp;
-    unsigned char value;
+    int value,k;
     state s;
     for (unsigned long i = 0,len = buttons.size(); i<len; i++) {
         temp = buttons.get(i);
+        value = 0;
         if (temp->buttonSwitch) {
-            value = digitalRead(temp->button);
+            for(k=0;k<10;k++){
+              value += digitalRead(temp->button);
+            }
+            value = (value>7)? 1:0;
             if (value!=temp->buttonValue) {
                 s = value? rising:falling;
             }

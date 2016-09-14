@@ -60,6 +60,7 @@ LinkList<type>::~LinkList(){
     while (c) {
         temp = c;
         c = temp->next;
+        delete temp;
     }
 }
 
@@ -171,7 +172,9 @@ type& LinkList<type>::pop() {
         c->prev->next = NULL;
     }
     length--;
-    return c->value;
+    type& temp = c->value;
+    delete c;
+    return temp;
 }
 
 template <typename type>
@@ -195,7 +198,9 @@ type& LinkList<type>::pop(unsigned long pos) {
     }
     
     length--;
-    return indexCell->value;
+    type& temp = indexCell->value;
+    delete indexCell;
+    return temp;
 }
 
 template <typename type>

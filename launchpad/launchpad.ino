@@ -7,12 +7,16 @@
 #define b4 A3
 #define b5 A4
 #define b6 A5
-#define b7 2
-#define b8 3
-#define b9 4
-#define b10 5
-#define b11 6
-#define b12 7
+#define b7 12
+#define b8 13
+#define b9 2
+#define b10 3
+#define b11 4
+#define b12 5
+#define b13 6
+#define b14 7
+#define b15 10
+#define b16 11
 SoftwareSerial BT(8, 9); // 接收腳, 傳送腳
 Buttons buttons;
 //把每个按钮注册到button类里面, 当按下按钮时调用对应的函数
@@ -29,8 +33,20 @@ void setup() {
   buttons.addButton(b10,b10Action);
   buttons.addButton(b11,b11Action);
   buttons.addButton(b12,b12Action);
+  buttons.addButton(b13,printButton);
+  buttons.addButton(b14,printButton);
+  buttons.addButton(b15,printButton);
+  buttons.addButton(b16,printButton);
   Serial.begin(9600);
   BT.begin(31250);
+}
+
+//for debug
+int counter = 0;
+void printButton(unsigned char b, state s){
+  if(s == high){
+    Serial.println(b);
+  }
 }
 
 void b1Action(unsigned char b, state s){
