@@ -23,6 +23,7 @@ public:
     type& get(unsigned long pos) const;
     type& remove(unsigned long pos);
     type& removeLast();
+    void clear();
     unsigned long size() const;
     long find(type& value) const;
     bool empty() const;
@@ -139,6 +140,11 @@ type& Array<type>::remove(unsigned long pos){
     length--;
     shift(pos, false);
     return temp;
+}
+
+template <typename type>
+void Array<type>::clear(){
+    length = 0;
 }
 
 template <typename type>
