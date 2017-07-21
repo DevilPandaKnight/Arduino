@@ -21,6 +21,7 @@ void loop() {
   for (;;){
     unsigned short a = analogRead(A0);
     Serial.write((char*)&a,2);
+    //Serial.println(a);
   }
   /*  test frequency
   long t0, t;
